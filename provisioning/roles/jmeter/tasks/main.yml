@@ -1,6 +1,5 @@
 ---
-
-
+# Install java
 - name: Define java_packages.
   set_fact:
     java_packages: "{{ __java_packages | list }}"
@@ -18,17 +17,6 @@
     dest: /etc/profile.d/java_home.sh
     mode: 0644
   when: java_home is defined and java_home
-
-
-# - name: Include variables
-#   include_vars: '{{ os_distribution_type }}'
-#   with_first_found:
-#     - files:
-#         - '{{ ansible_distribution }}.yml'
-#         - '{{ ansible_os_family }}.yml'
-#       skip: true
-#   loop_control:
-#     loop_var: os_distribution_type
 
 - block:
     - name: Fetch archive binaries page
